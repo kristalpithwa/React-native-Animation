@@ -1,5 +1,5 @@
-import { Button, Text, View } from "react-native";
-import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
+import { View } from "react-native";
+import { useSharedValue } from "react-native-reanimated";
 
 export default function animationTwo() {
   const width = useSharedValue(100);

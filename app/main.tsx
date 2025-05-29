@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
-import { Text, View, FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 
-export default function Index() {
+export default function Main() {
   const data = [
     { id: "1", title: "Animation One", href: "/animationOne" },
     { id: "2", title: "Animation Two", href: "/animationTwo" },
