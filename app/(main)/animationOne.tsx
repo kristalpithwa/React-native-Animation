@@ -1,4 +1,4 @@
-import { Button, Text, View } from "react-native";
+import { Button, View } from "react-native";
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
 
 export default function AnimationOne() {

@@ -1,10 +1,13 @@
-import { Link } from "expo-router";
+import { removeToken } from "@/utils/auth";
+import { Link, useRouter } from "expo-router";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
-export default function Main() {
+export default function Home() {
+  const router = useRouter();
+
   const data = [
-    { id: "1", title: "Animation One", href: "/animationOne" },
-    { id: "2", title: "Animation Two", href: "/animationTwo" },
+    { id: "1", title: "Animation One", href: "/(main)/animationOne" },
+    { id: "2", title: "Animation Two", href: "/(main)/animationTwo" },
   ];
 
   const renderList = ({ item }) => {
@@ -17,14 +20,25 @@ export default function Main() {
     );
   };
 
+  const handleLogout = async () => {
+    await removeToken();
+    router.replace("/(auth)/login");
+  };
+
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={data}
         renderItem={renderList}
         keyExtractor={(item) => item.id}
         style={{ marginTop: 25, marginLeft: 20 }}
       />
+      <Text
+        onPress={handleLogout}
+        style={{ marginBottom: 100, textAlign: "center" }}
+      >
+        Logout
+      </Text>
     </View>
   );
 }
